@@ -24,12 +24,12 @@ const investimento_negativo = investimento.filter((inv) => {
 console.log(investimento_negativo);
 
 // Um array com nome positivo apenas com o saldo positivo
-const saldo_positivo = investimento_positivo.map(obj => ({ saldo: obj.saldo }));
-console.log(saldo_positivo);
+const positivo = investimento_positivo.map(obj => ({ saldo: obj.saldo }));
+console.log(positivo);
 
 // Um array com nome negativo apenas com o saldo negativo
-const saldo_negativo = investimento_negativo.map(obj => ({ saldo: obj.saldo }));
-console.log(saldo_negativo);
+const negativo = investimento_negativo.map(obj => ({ saldo: obj.saldo }));
+console.log(negativo);
 
 // Uma variável com o total negativo
 const total_negativo = investimento_negativo.reduce((acc, media) => acc + media.saldo, 0);
