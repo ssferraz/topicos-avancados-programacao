@@ -5,11 +5,7 @@ import java.util.List;
 public class ComposicaoDeFuncoes {
 
     public static void main(String[] args) {
-        
-    	/*
-    	 * Composição de funções é a combinação de duas ou mais funções em uma única função.
-    	 */
-    	
+
         List<Aluno> alunos = List.of(
                 new Aluno("Alice", 7.5, 4.5),
                 new Aluno("Bob", 8.5, 5.5),
@@ -18,9 +14,9 @@ public class ComposicaoDeFuncoes {
                 new Aluno("Edgar", 7.0, 10.0)
         );
         
-        // Retornar a média de todos os alunos aprovados
         double mediaAprovados = alunos.stream()
-                .map(aluno -> new Aluno(aluno.getNome(), (aluno.getNota1() + aluno.getNota2()) / 2))
+                .map(aluno -> new Aluno(aluno.getNome(), 
+                	(aluno.getNota1() + aluno.getNota2()) / 2))
                 .filter(aluno -> aluno.getMedia() >= 7)
                 .mapToDouble(Aluno::getMedia)
                 .average()
