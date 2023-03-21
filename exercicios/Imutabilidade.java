@@ -1,27 +1,19 @@
 package exercicios;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 public class Imutabilidade {
-	
-	/*
-	 * Imutabilidade é uma técnica em programação funcional em que uma vez que um objeto é criado, 
-	 * ele não pode ser alterado. Em Java, isso pode ser feito usando a classe final para tornar 
-	 * variáveis e métodos imutáveis.
-	 * */
-	
-	private final String nome;
-	private final int idade;
 
-	public Imutabilidade(String nome, int idade) {
-		this.nome = nome;
-		this.idade = idade;
-	}
+	public static void main(String[] args) {
+		List<String> rooms = List.of("R1", "R2", "R3");
+		List<String> newRooms = rooms
+				.stream()
+				.map(room -> room.equals("R3") ? "R4" : room)
+				.collect(Collectors.toList());
 
-	public String getNome() {
-		return nome;	
-	}
-
-	public int getIdade() {
-		return idade;
+		System.out.println(rooms); // [R1, R2, R3]
+		System.out.println(newRooms); // [R1, R2, R4]
 	}
 
 }
